@@ -37,14 +37,14 @@
   </header> <!-- /#header -->
 </div>
 
-  <div id="navigation-wrapper">
-    <?php if ($main_menu || $page['navigation']): ?>
+  <?php if ($main_menu || $page['navigation']): ?>
+    <div id="navigation-wrapper">
       <nav id="navigation" role="navigation" class="clearfix container <?php print $navigation_class; ?>">
         <?php if ($main_menu) { print $main_menu; } ?>
 	    <?php if ($page['navigation']) { print render($page['navigation']); } ?>
       </nav> <!-- /#navigation -->
-    <?php endif; ?>
-  </div> <!-- /#navigation-wrapper -->
+    </div> <!-- /#navigation-wrapper -->
+  <?php endif; ?>
 
 
 <?php if ($page['highlighted']): ?>
@@ -55,7 +55,7 @@
   </div>
 <?php endif; ?>
 
-  <div id="wrapper-main" class="clearfix container"><div class="row">
+  <div id="main-wrapper" class="clearfix container"><div class="row">
 
 <?php endif; /* !$ajax */ ?>
   <section id="main" role="main" class="clearfix <?php echo $main_classes; ?>">
@@ -122,12 +122,6 @@
 	<div id="site-credit"><a href="http://www.webskillet.com">website by Webskillet | a union shop, worker-owned cooperative and women-owned business</a></div>
   </footer> <!-- /#footer -->
 </div>
-
-  <?php if ($page['popups']): ?>
-    <aside id="popups" role="complimentary">
-      <?php print render($page['popups']); ?>
-    </aside> <!-- /#popups -->
-  <?php endif; ?>
 
 </div> <!-- /#wrapper -->
 <?php endif; /* !$ajax */ ?>

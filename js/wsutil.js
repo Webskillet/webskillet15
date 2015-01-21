@@ -128,9 +128,9 @@ wsUtil = {
 		self.preparePopUps('.print_html a',800,600);
 
 		// validate any forms
-		if ($('form').validate) {
-			$('form').each(function(){
-				$(this).validate();
+		if (jQuery('form').validate) {
+			jQuery('form').each(function(){
+				jQuery(this).validate();
 			});
 		}
 	},
@@ -142,7 +142,7 @@ wsUtil = {
 				jQuery(this).children('.close').click(function(event){jQuery(this).parent().slideUp();});
 			}
 		});
-	}
+	},
 
 	setCookie : function(c_name,value,exdays) {
 		var exdate=new Date();
@@ -239,22 +239,21 @@ wsUtil = {
 	},
 
 	prepareNavigation : function(container) {
-		jQuery('#navigation h2.navigation-header, #navigation > ul.main-menu, #navigation .om_maximenu .block h2, #navigation .om_maximenu .block .content').addClass('collapsed');
+		jQuery('#navigation h2.navigation-header, #navigation > ul.main-menu, #navigation #om-maximenu-main-menu, #navigation #om-maximenu-main-menu .block h3, #navigation #om-maximenu-main-menu .block .content').addClass('collapsed');
 		jQuery('#navigation h2.navigation-header').click(function(){
 			if (jQuery(this).hasClass('collapsed')) {
-				jQuery('#navigation h2.navigation-header, #navigation > ul.main-menu').removeClass('collapsed').addClass('expanded');
+				jQuery('#navigation h2.navigation-header, #navigation > ul.main-menu, #navigation #om-maximenu-main-menu').removeClass('collapsed').addClass('expanded');
 			} else {
-				jQuery('#navigation h2.navigation-header, #navigation > ul.main-menu').removeClass('expanded').addClass('collapsed');
+				jQuery('#navigation h2.navigation-header, #navigation > ul.main-menu, #navigation #om-maximenu-main-menu').removeClass('expanded').addClass('collapsed');
 			}
 		});
-		jQuery('#navigation .om_maximenu .block h2').click(function(){
+		jQuery('#navigation #om-maximenu-main-menu .block h3').click(function(){
 			if (jQuery(this).hasClass('collapsed')) {
 				jQuery(this).removeClass('collapsed').addClass('expanded');
 				jQuery(this).siblings('.content').removeClass('collapsed').addClass('expanded');
 			} else {
-			if (jQuery(this).hasClass('collapsed')) {
-				jQuery(this).removeClass('collapsed').addClass('expanded');
-				jQuery(this).siblings('.content').removeClass('collapsed').addClass('expanded');
+				jQuery(this).removeClass('expanded').addClass('collapsed');
+				jQuery(this).siblings('.content').removeClass('expanded').addClass('collapsed');
 			}
 		});
 	},

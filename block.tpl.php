@@ -5,7 +5,7 @@
 
   <?php print render($title_prefix); ?>
   <?php if (!empty($block->subject)): ?>
-    <h2 <?php print $title_attributes; ?>><?php print $icons; ?><?php print $block->subject ?></h2>
+    <h2 <?php print $title_attributes; ?>><?php print $icon; ?><?php print $block->subject ?></h2>
   <?php endif;?>
   <?php print render($title_suffix); ?>
 

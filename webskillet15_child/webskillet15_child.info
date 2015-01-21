@@ -2,7 +2,7 @@ name = Webskillet 15 Child Theme
 description = Child theme for Webskillet 15
 core = 7.x
 base theme = webskillet15
-stylesheets[all][] = css/style.css
+stylesheets[all][] = css/child.css
 scripts[] = js/script.js
 
 regions[header]         = Header

@@ -25,7 +25,6 @@ function webskillet15_child_form_system_theme_settings_alter(&$form, $form_state
 	'#description' => t('Fontawesome icon class to add to navigation title (generally only shown on mobile)'),
 	'#default_value' => theme_get_setting('webskillet15_navigation_icon'),
   );
-  );
   $form['webskillet15_navigation']['webskillet15_navigation_style'] = array
   (
 	'#type' => 'select',
@@ -125,6 +124,7 @@ function webskillet15_child_form_system_theme_settings_alter(&$form, $form_state
 	'#options' => array(
 		1 => 'Yes',
 		0 => 'No',
+    ),
 	'#default_value' => theme_get_setting('webskillet15_galleria'),
 	'#description' => t('By default, this will replace any link to a flickr or facebook photo set with a responsive slideshow of the photos in that set.'),
   );

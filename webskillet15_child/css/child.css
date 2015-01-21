@@ -1,0 +1,217 @@
+/*
+File: child.css
+Author: Jonathan Kissam, jk@webskillet.com
+
+This file includes overwrites for the font, color and spacing properties you'll most likely want to override from the webskillet15 parent theme.  Otherwise, it is mostly an empty table of contents
+
+Table of contents:
+1. Framework
+2. Typography
+ 2.1 Body
+ 2.2 Headers
+ 2.3 Text
+ 2.4 Lists
+ 2.5 Links
+ 2.6 Images
+ 2.7 Tables
+ 2.8 Forms
+3. Header
+4. Navigation
+5. Highlighted
+6. Content
+ 6.1 Messages
+ 6.2 Admin tabs
+ 6.3 Nodes
+ 6.4 Fields
+ 6.5 Profiles
+ 6.6 Comments
+ 6.7 content formatting for specific pages
+ 6.7.1 search form & search results page
+7. Sidebars
+8. Pre-footers and Footer
+9. Media Queries (replicate same structure)
+10. IE Fixes
+*/
+
+/**
+ * 1. Framework
+ */
+
+#header-wrapper, #navigation-wrapper, #main-wrapper, #footer-wrapper { padding-top: 10px; padding-bottom: 10px; }
+
+/**
+ * 2. Typography
+ */
+
+/* 2.1 Body */
+body { color: #333; font: 93.75%/1.6em Arial, Helvetica, 'Helvetica Neue', sans-serif; }
+
+/* 2.2 Headers */
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0 0 1em; font-family: Arial, Helvetica, 'Helvetica Neue', sans-serif; }
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.333em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.066em; font-weight: bold; }
+h5, h6 { font-size: 0.8em; font-weight: bold; margin-bottom: 0; }
+
+/* 2.3 Text */
+
+/* 2.4 Lists */
+
+/* 2.5 Links */
+a { text-decoration: none; }
+a:link { color: #44889f; }
+a:visited { color: #44889f; }
+.no-touch a:hover { color: #a62a32; }
+a:active { color: #44889f; }
+
+/* 2.6 Images */
+
+/* 2.7 Tables */
+
+/* 2.8 Forms */
+.form-item .description, .filter-guidelines { color: #999; }
+input, select, textarea { border: 1px solid #ccc; color: #333; font-family: Arial, Helvetica, 'Helvetica Neue', sans-serif; box-shadow: 0 1px 1px #eee inset; -moz-box-shadow: 0 1px 1px #eee inset; -webkit-box-shadow: 0 1px 1px #eee inset; }
+input:focus, select:focus, textarea:focus { box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; border-color: #333; }
+fieldset { border-color: #ccc; }
+legend { font: 1.333em Arial,Helvetica,'Helvetica Neue',sans-serif; color: #333; border: 1px solid #ccc; }
+.form-type-checkbox label, .form-type-radio label { color: #999; }
+input.form-checkbox:checked + label, input.form-radio:checked + label { color: #333; }
+input[type="submit"], button, a.button {
+  background: #dddddd; /* for non-css3 browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ededed');
+  background: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#ededed));
+  color: #000;
+  text-shadow: 1px 1px 1px #fff;
+  border: 1px solid #ccc;
+}
+.no-touch input[type="submit"]:hover, .no-touch button:hover, .no-touch a.button:hover {
+  background: #ededed;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dddddd');
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#dddddd));
+  background: -moz-linear-gradient(top,  #ededed,  #dddddd);
+  color: #000;
+}
+div.error, .error { color: #cc0000; }
+.form-item input.error, .form-item textarea.error, .form-item select.error { border: 1px solid #cc0000; }
+
+
+/**
+ * 3. Header
+ */
+
+/**
+ * 4. Navigation
+ */
+
+#navigation li ul.main-menu li { line-height: 40px; }
+
+/* om-maximenu */
+.om-maximenu.om-maximenu-main-menu ul.om-menu li.om-leaf,
+.om-maximenu.om-maximenu-main-menu ul.om-menu li.om-leaf .om-link { min-height: 40px; }
+.om-maximenu-no-style .om-maximenu-middle-right { padding: 1em; }
+
+/**
+ * 5. Highlighted
+ */
+
+/**
+ * 6. Content
+ */
+
+/* 6.1 Messages */
+
+/* 6.2 Admin tabs */
+
+/* 6.3 Nodes */
+
+/* social media links */
+
+/* 6.4 Fields */
+
+/* 6.5 Profiles */
+
+/* 6.6 Comments */
+
+/* 6.7 content formatting for specific pages */
+
+/* 6.7.1 search form & search results page */
+
+
+/**
+ * 7. Sidebars
+ */
+
+.sidebar .block { margin-bottom: 2em; }
+
+/**
+ * 8. Pre-footers, utility and footer
+ */
+
+/* 8.1 Prefooter 1 */
+
+/* 8.2 Prefooter 2 */
+
+/* 8.3 Utility */
+
+/* 8.4 Footer */
+
+/**
+ * 9. Media Queries
+ */
+
+/* 9.1 Larger than a Samsung galaxy phone in portrait mode */
+@media screen and (min-width: 361px) {
+
+}
+
+/* 9.2 Larger than an iPhone in landscape mode */
+@media screen and (min-width: 481px) {
+
+}
+
+/* 9.3 iPad in portrait mode or larger */
+@media screen and (min-width: 768px) {
+
+	/* 4. Navigation */
+	/* if you want to display mobile menu on tablets, remove all the below from child.css,
+	   copy entire style.css from parent theme to child theme,
+	   add style.css in child theme .info file,
+	   and move the navigation section from the tablet query to the desktop query. */
+	#navigation-wrapper, #navigation { height: 40px; }
+	#navigation ul { height: 40px; line-height: 40px; }
+	#navigation ul.main-menu li { margin: 5px 0; padding: 0; height: 30px; line-height: 30px; }
+	#navigation ul.main-menu li a { padding: 0 1em; }
+	#navigation ul.main-menu li.first a { padding-left: 0; }
+	#navigation ul.main-menu li.first { border-left: 0; }
+
+	/* Handles drop-down menus
+	top-margin = bottom-margin of parent li; top = height of parent li - top-margin */
+	#navigation li ul.main-menu { top: 25px; width: 200px; margin: 5px 0 0; padding: 0.5em; background: #fff; }
+	#navigation li ul.main-menu li a, #navigation li ul.main-menu li.first a { padding: 5px 0.5em; }
+
+	/* om-maximenu */
+	.om-maximenu ul.om-menu { height: 40px; line-height: 40px; }
+	.om-maximenu ul.om-menu li.om-leaf .om-link { padding: 0 1em; }
+	.om-maximenu ul.om-menu li.om-leaf.first .om-link { padding-left: 0; }
+	.om-maximenu-no-style .om-maximenu-content { top: 40px; }
+
+}
+
+/* 9.4 full screen */
+@media screen and (min-width: 992px) {
+
+}
+
+/* 9.5 wide screen */
+@media screen and (min-width: 1200px) {
+
+}
+
+
+
+/**
+ * 10. IE fixes
+ */
+
+

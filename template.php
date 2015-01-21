@@ -25,7 +25,7 @@ function webskillet15_preprocess_html(&$variables) {
   );
   drupal_add_html_head($meta_viewport, 'meta_viewport');
 
-  drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . drupal_get_path('theme','webskillet15') . '" });', 'inline');
+  drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . drupal_get_path('theme', variable_get('theme_default', NULL)) . '" });', 'inline');
 
   $q = isset($_GET['q']) ? $_GET['q'] : 'front';
   $page_id = str_replace('/','-',$q);
@@ -52,39 +52,47 @@ function webskillet15_preprocess_html(&$variables) {
 	));
   }
 
+  // we're adding reset.css here so it loads before bootstrap.css and doesn't overwrite it ...
+  drupal_add_css(drupal_get_path('theme','webskillet15').'/css/reset.css',array(
+    'type' => 'file',
+    'group' => CSS_THEME,
+    'every_page' => TRUE,
+    'weight' => -98,
+  ));
+
   if (theme_get_setting('webskillet15_bootstrapjs')) {
     drupal_add_css(drupal_get_path('theme','webskillet15').'/css/bootstrap.min.css',array(
 		'type' => 'file',
 		'group' => CSS_THEME,
 		'every_page' => TRUE,
-		'weight' => -99,
+		'weight' => -97,
 	));
     drupal_add_js(drupal_get_path('theme','webskillet15').'/js/bootstrap.min.js',array(
 		'type' => 'file',
 		'group' => JS_THEME,
 		'every_page' => TRUE,
 	));
-    drupal_add_js('https://code.jquery.com/ui/1.11.2/jquery-ui.min.js',array(
+    drupal_add_js('https://code.jquery.com/jquery-1.11.1.min.js',array(
 		'type' => 'external',
-		'group' => JS_SYSTEM,
+		'group' => JS_LIBRARY,
 		'every_page' => TRUE,
 		'weight' => -100,
 	));
-	$scripts = drupal_add_js(drupal_get_path('theme','webskillet15').'/jsjquery.browser.min.js/jquery.browser.min.js',array(
+	$scripts = drupal_add_js(drupal_get_path('theme','webskillet15').'/js/jquery.browser.min.js',array(
 		'type' => 'file',
-		'group' => JS_SYSTEM,
+		'group' => JS_LIBRARY,
 		'every_page' => TRUE,
 		'weight' => -99,
 	));
 	// remove old version of jQuery
 	unset($scripts['core']['misc/jquery.js']);
-	$variables['scripts'] = drupal_get_js('header', $scripts);
+	$variables['scripts'] = drupal_get_js('header', $scripts, true);
   } else {
     drupal_add_css(drupal_get_path('theme','webskillet15').'/css/bootstrap-gridonly.min.css',array(
 		'type' => 'file',
 		'group' => CSS_THEME,
 		'every_page' => TRUE,
-		'weight' => -99,
+		'weight' => -97,
 	));
   }
 
@@ -252,7 +260,7 @@ function webskillet15_preprocess_page(&$variables) {
 
 	// for multi-lingual om_maximenu menus, see here: https://drupal.org/node/1459416
 */
-  if (isset($variables['main_menu'])) {
+  if (isset($variables['main_menu']) && $variables['main_menu']) {
 	if (theme_get_setting('webskillet15_om_maximenu') && module_exists('om_maximenu') && $variables['main_menu_tree']) {
 	  $variables['main_menu'] = $variables['main_menu_tree'];
 	} else {
@@ -260,6 +268,7 @@ function webskillet15_preprocess_page(&$variables) {
       $variables['main_menu'] = drupal_render($menu_tree);
 	}
 	$menutitle = theme_get_setting('webskillet15_navigation_title');
+	if (!$menutitle) { $menutitle = 'Navigation'; }
 	if (theme_get_setting('webskillet15_load_fontawesome') && $icon = theme_get_setting('webskillet15_navigation_icon')) {
 		$menutitle = '<i class="fa '.$icon.'"></i> <span>'.$menutitle.'</span>';
 	}
@@ -333,9 +342,13 @@ function webskillet15_preprocess_node(&$variables) {
   $variables['twitterHashtag'] = theme_get_setting('webskillet15_twitter_hashtag');
   $variables['twitterHandle'] = theme_get_setting('webskillet15_twitter_handle');
   $tweetField = theme_get_setting('webskillet15_twitter_field');
-  $field_tweet = field_get_items('node', $variables['node'], $tweetField);
-  $value_tweet = $field_tweet ? field_view_value('node', $variables['node'], $tweetField, $field_tweet[0]) : array();
-  $tweet = isset($value_tweet['#markup']) ? $value_tweet['#markup'] : '';
+  if ($tweetField) {
+    $field_tweet = field_get_items('node', $variables['node'], $tweetField);
+    $value_tweet = $field_tweet ? field_view_value('node', $variables['node'], $tweetField, $field_tweet[0]) : array();
+    $tweet = isset($value_tweet['#markup']) ? $value_tweet['#markup'] : '';
+  } else {
+    $tweet = '';
+  }
   $variables['twitterTweet'] = $tweet ? $tweet : $variables['title'];
 }
 
@@ -354,19 +367,20 @@ function webskillet15_preprocess_block(&$variables) {
 		)) ? array('col-xs-12') : array();
 	$block_classes = explode("\n",theme_get_setting('webskillet15_block_classes'));
 	foreach ($block_classes as $region_line) {
-		list($region, $classes) = explode('|',$region_line);
-		if ($region == $block_region) {
-			$clases_array = explode(' ',$classes);
+		$region_classes = explode('|',$region_line);
+		if ( ($region_classes[0] == $block_region) && isset($region_classes[1]) ) {
+			$classes_array = explode(' ',$region_classes[1]);
 		}
 	}
-	$variables['classes_array'] = array_merge($variables['classes_array'], $clases_array);
+	$variables['classes_array'] = array_merge($variables['classes_array'], $classes_array);
 
 	// add icon
+	$variables['icon'] = '';
 	$block_icons = explode("\n",theme_get_setting('webskillet15_block_icons'));
 	foreach ($block_icons as $icon_line) {
-		list($bid, $iconHTML) = explode('|',$icon_line);
-		if ($variables['block']->bid == $bid) {
-			$variables['icons'] = check_plain($iconHTML) == $iconHTML ? '<i class="'.$iconHTML.'"></i> ' : $iconHTML.' ';
+		$icon_line_items = explode('|',$icon_line);
+		if ( ($variables['block']->bid == $icon_line_items[0]) && isset($icon_line_items[1]) ) {
+			$variables['icon'] = check_plain($icon_line_items[1]) == $icon_line_items[1] ? '<i class="'.$icon_line_items[1].'"></i> ' : $icon_line_items[1].' ';
 		}
 	}
 }

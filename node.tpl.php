@@ -37,7 +37,7 @@
     ?>
   </div>
 
-<?php if ($page): ?>
+<?php if ($page && 0): ?>
 	  <div class="share-links">
 		<h3><?php print(t('Share this').':'); ?></h3>
         <ul class="btn-share btn-social">
@@ -48,7 +48,7 @@
 	  </div>
 <?php endif; ?>
 
-  <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
+  <?php if (!empty($content['links'])): ?>
     <footer>
       <?php print render($content['field_tags']); ?>
       <?php print render($content['links']); ?>

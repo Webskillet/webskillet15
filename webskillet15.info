@@ -1,9 +1,9 @@
 name = webskillet15
 description = mobile-first base HTML5 theme for webskillet development (2015 version)
 package = Core
+version = 1.0-alpha1
 core = 7.x
 engine = phptemplate
-stylesheets[all][] = css/reset.css
 stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 scripts[] = js/modernizr.js

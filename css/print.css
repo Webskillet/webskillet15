@@ -6,7 +6,8 @@
 /* serif fonts are easier to read; also, replace any web fonts (they won't print) */
 body { font: 100%/1.8em Times,'Times New Roman',serif; color: #000; width: 100% !important }
 
-body, #wrapper, #header, #wrapper-main, #main, #footer { width: 100% !important; }
+body, #wrapper, #header, #highlighted, #main-wrapper, #prefooter1, #prefooter2, #footer { width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+#main { width: 100% !important; }
 
 .region-page-top, .region-page-bottom, #navigation-wrapper, #navigation, .sidebar, #utility, #popups, .btn-share, .btn-social, .share-links { display: none !important; }
 

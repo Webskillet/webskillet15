@@ -1,0 +1,44 @@
+name = webskillet14
+description = mobile-first base HTML5 theme for webskillet development (2014 version)
+package = Core
+core = 7.x
+engine = phptemplate
+stylesheets[all][] = css/reset.css
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/style.css
+stylesheets[print][] = css/print.css
+scripts[] = js/modernizr.js
+scripts[] = js/jquery.wipetouch.js
+scripts[] = js/jquery.validate.js
+scripts[] = js/wsutil.js
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = comment_user_verification
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+regions[header]         = Header
+; regions[highlighted]    = Highlighted
+regions[content]        = Content
+regions[sidebar_first]  = First Sidebar
+; regions[sidebar_second] = Second Sidebar
+regions[navigation]     = Navigation
+; regions[help]           = Help
+regions[utility]	= Utility
+regions[footer]         = Footer
+regions[popups]		= Popups
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom
+
+; default settings
+settings[webskillet14_twitter_handle] = ''
+settings[webskillet14_twitter_hashtag] = ''
+settings[webskillet14_custom_css] = ''
+settings[webskillet14_custom_js] = ''
+
+

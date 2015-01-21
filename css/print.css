@@ -1,0 +1,17 @@
+/**
+ * print.css
+ * author: Jonathan Kissam, jk@webskillet.com
+ */
+
+/* serif fonts are easier to read; also, replace any web fonts (they won't print) */
+body { font: 100%/1.8em Times,'Times New Roman',serif; color: #000; width: 100% !important }
+
+body, #wrapper, #header, #wrapper-main, #main, #footer { width: 100% !important; }
+
+.region-page-top, .region-page-bottom, #navigation-wrapper, #navigation, .sidebar, #utility, #popups, .btn-share, .btn-social, .share-links { display: none !important; }
+
+#header { border-bottom: 1px solid #000; margin-bottom: 30px; }
+
+a:link, a:visited { color: #000 !important; }
+#main .field-name-body a:link,#main .field-name-body a:visited { text-decoration: underline !important; }
+#main .field-name-body a:after, #site-credit a:after {content:" (" attr(href) ") ";font-size:0.8em;font-weight:normal;}

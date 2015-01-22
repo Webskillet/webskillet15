@@ -58,7 +58,7 @@
   <div id="main-wrapper" class="clearfix container"><div class="row">
 
 <?php endif; /* !$ajax */ ?>
-  <section id="main" role="main" class="clearfix <?php echo $main_classes; ?>">
+  <section id="page" role="main" class="clearfix <?php echo $main_classes; ?>">
     <?php print $messages; ?>
     <a id="main-content"></a>
     <?php print render($title_prefix); ?>

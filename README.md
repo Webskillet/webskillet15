@@ -1,7 +1,7 @@
 # webskillet15
 Responsive, mobile-first HTML5 base theme for Drupal 7
 
-Developed by [Webskillet Cooperative](www.webskillet.com)
+Developed by [Webskillet Cooperative](http://www.webskillet.com)
 
 Remotely based on:
 

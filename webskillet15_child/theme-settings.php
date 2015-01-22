@@ -21,7 +21,7 @@ function webskillet15_child_form_system_theme_settings_alter(&$form, $form_state
   $form['webskillet15_navigation']['webskillet15_navigation_icon'] = array
   (
 	'#type' => 'textfield',
-	'#title' => t('Navigation Title'),
+	'#title' => t('Navigation Icon'),
 	'#description' => t('Fontawesome icon class to add to navigation title (generally only shown on mobile)'),
 	'#default_value' => theme_get_setting('webskillet15_navigation_icon'),
   );
@@ -196,7 +196,7 @@ function webskillet15_child_form_system_theme_settings_alter(&$form, $form_state
   (
     '#type' => 'textarea',
     '#title' => t('Block Title Icons'),
-    '#description' => t('To add an icon to the title of a block, use this block_id|icon. One block per line.  icon can be either a class declaration, in which case an <i> element with the class will be prepended to the title, or any arbitrary html (such as an <img> tag).'),
+    '#description' => t('To add an icon to the title of a block, use this block_id|icon. One block per line.  icon can be either a class declaration, in which case an &lt;i&gt; element with the class will be prepended to the title, or any arbitrary html (such as an &lt;img&gt; tag).'),
     '#default_value' => theme_get_setting('webskillet15_block_icons'),
     '#cols' => 60,
     '#rows' => 7,

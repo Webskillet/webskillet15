@@ -119,7 +119,7 @@
 <div id="footer-wrapper">
   <footer id="footer" role="contentinfo" class="container">
     <?php print render($page['footer']) ?>
-	<div id="site-credit"><a href="http://www.webskillet.com">website by Webskillet | a union shop, worker-owned cooperative and women-owned business</a></div>
+	<div id="site-credit"><a href="http://www.webskillet.com">website by Webskillet</a></div>
   </footer> <!-- /#footer -->
 </div>
 

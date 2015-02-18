@@ -78,6 +78,7 @@ dd ul, dd ol { margin-left: 0; }
 ul.menu li { margin: 0; padding: 0; }
 ul.inline, ul.links.inline { clear: both; margin: 0; }
 ul.inline li { margin: 0; padding: 0 1em 0 0; }
+ul.inline li.last { padding: 0; }
 
 /* 2.5 Links */
 a { text-decoration: none; }
@@ -346,8 +347,8 @@ ul.btn-social { margin: 0; padding: 0; height: 30px; }
 	/* move to full screen version if you want to display mobile menu on tablets */
 	#navigation h2.navigation-header { position: absolute; left: -999em; }
 	.js #navigation > ul.main-menu, .js #navigation > ul.main-menu.collapsed { position: relative; left: auto; }
-	#navigation-wrapper, #navigation { height: 40px; z-index: 20; }
-	#navigation ul { height: 40px; line-height: 40px; float: left; z-index: 20; margin: 0; }
+	#navigation { height: 40px; z-index: 20; }
+	#navigation ul.main-menu { height: 40px; line-height: 40px; float: left; z-index: 20; margin: 0; }
 	#navigation ul.main-menu li { float: left; display: block; margin: 5px 0; padding: 0; height: 30px; line-height: 30px; }
 	#navigation ul.main-menu li a { display: block; float: left; padding: 0 1em; }
 	#navigation ul.main-menu li.first a { padding-left: 0; }

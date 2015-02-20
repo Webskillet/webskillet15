@@ -83,7 +83,7 @@
     </aside>  <!-- /#sidebar-second -->
   <?php endif; ?>
 
-  </div></div></div> <!-- /.row, #main, #wrapper-main -->
+  </div></div></div> <!-- /#main, #wrapper-main -->
 
 <?php if ($page['prefooter1']): ?>
   <div id="prefooter1-wrapper">

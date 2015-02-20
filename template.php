@@ -359,7 +359,7 @@ function webskillet15_preprocess_block(&$variables) {
 
 	// add classes based on region
 	$block_region = $variables['block']->region;
-	$clases_array = in_array($block_region,array(
+	$classes_array = in_array($block_region,array(
 			'highlighted',
 			'prefooter1',
 			'prefooter2',

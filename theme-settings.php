@@ -119,7 +119,7 @@ function webskillet15_form_system_theme_settings_alter(&$form, $form_state) {
   );
   $form['webskillet15_js']['webskillet15_galleria'] = array
   (
-	'#type' => 'textfield',
+	'#type' => 'radios',
 	'#title' => t('Load Galleria.js?'),
 	'#options' => array(
 		1 => 'Yes',
@@ -135,7 +135,7 @@ function webskillet15_form_system_theme_settings_alter(&$form, $form_state) {
 	'#description' => t('Add one or more comma-separated jQuery selectors to limit the application of galleria.js, above.'),
 	'#default_value' => theme_get_setting('webskillet15_galleria_selectors'),
   );
-  $form['webskillet15_js']['webskillet15_galleria'] = array
+  $form['webskillet15_js']['webskillet15_custom_js'] = array
   (
     '#type' => 'textarea',
     '#title' => t('Custom Javascript'),

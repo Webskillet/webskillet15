@@ -379,7 +379,7 @@ function webskillet15_preprocess_block(&$variables) {
 	$block_icons = explode("\n",theme_get_setting('webskillet15_block_icons'));
 	foreach ($block_icons as $icon_line) {
 		$icon_line_items = explode('|',$icon_line);
-		if ( ($variables['block']->bid == $icon_line_items[0]) && isset($icon_line_items[1]) ) {
+		if ( ($variables['block_html_id'] == $icon_line_items[0]) && isset($icon_line_items[1]) ) {
 			$variables['icon'] = check_plain($icon_line_items[1]) == $icon_line_items[1] ? '<i class="'.$icon_line_items[1].'"></i> ' : $icon_line_items[1].' ';
 		}
 	}

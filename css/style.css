@@ -75,10 +75,13 @@ dd ul, dd ol { margin-left: 0; }
 
 .item-list ul { margin: 0; padding: 0; }
 .item-list ul li { margin: 0; padding: 0; list-style: none outside none; }
+ul.menu { margin: 0; }
 ul.menu li { margin: 0; padding: 0; }
+ul.menu ul { margin-left: 1.5em; }
 ul.inline, ul.links.inline { clear: both; margin: 0; }
 ul.inline li { margin: 0; padding: 0 1em 0 0; }
 ul.inline li.last { padding: 0; }
+ul li.leaf, ul li.collapsed, ul li.expanded { list-style: none outside none; }
 
 /* 2.5 Links */
 a { text-decoration: none; }
@@ -299,6 +302,7 @@ ul.btn-social { margin: 0; padding: 0; height: 30px; }
 /* 6.8 Miscellaneous */
 #context_ui_dialog-context-ui { width: 570px; }
 .context-ui-dialog-open { right: -55px; }
+.book-navigation .menu { margin: 1em 0; }
 
 
 /**

@@ -462,6 +462,27 @@ wsUtil = {
 		if (newTop >= 0) { jQuery(sel).css('top',newTop+'px'); }
 	},
 
+	shortenLinks : function() {
+		jQuery('a').each(function(){
+			if (jQuery(this).width() > jQuery(this).parent().width()) {
+
+				href = jQuery(this).attr('href');
+				linktext = jQuery(this).text();
+				regex = /(https?:\/\/)?([a-zA-Z0-9\-\.]+)\/\S*/;
+				isUrl = regex.exec(linktext);
+				if (isUrl !== null && isUrl.length) {
+					url = regex.exec(href);
+					if (url[2]) {
+						jQuery(this).text('('+url[2]+')');
+					} else {
+						jQuery(this).text('(link)');
+					}
+				}
+
+			}
+		});
+	},
+
 }
 
 /**

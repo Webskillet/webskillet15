@@ -78,15 +78,12 @@ function webskillet15_preprocess_html(&$variables) {
 		'every_page' => TRUE,
 		'weight' => -100,
 	));
-	$scripts = drupal_add_js(drupal_get_path('theme','webskillet15').'/js/jquery.browser.min.js',array(
+	drupal_add_js(drupal_get_path('theme','webskillet15').'/js/jquery.browser.min.js',array(
 		'type' => 'file',
 		'group' => JS_LIBRARY,
 		'every_page' => TRUE,
 		'weight' => -99,
 	));
-	// remove old version of jQuery
-	unset($scripts['core']['misc/jquery.js']);
-	$variables['scripts'] = drupal_get_js('header', $scripts, true);
   } else {
     drupal_add_css(drupal_get_path('theme','webskillet15').'/css/bootstrap-gridonly.min.css',array(
 		'type' => 'file',
@@ -164,7 +161,15 @@ function webskillet15_html_head_alter(&$head_elements) {
  * Implements hook_process_html()
  */
 function webskillet15_process_html(&$variables) {
-  // here are the witdh calculatings and some scrips addings 
+
+  // remove old version of jQuery if we're using Bootstrap's js
+  if (theme_get_setting('webskillet15_bootstrapjs')) {
+	$scripts = drupal_add_js();
+	unset($scripts['misc/jquery.js']);
+	$variables['scripts'] = drupal_get_js('header', $scripts, true);
+  }
+
+  // here are the width calculatings and some scripts addings 
   if (theme_get_setting('webskillet15_custom_css')) {
     $variables['styles'] .= '<script type="text/javascript"></script>'; /* Needed to avoid Flash of Unstyle Content in IE */
     $variables['styles'] .= '<style type="text/css">

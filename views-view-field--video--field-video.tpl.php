@@ -18,6 +18,7 @@
   * regardless of any changes in the aliasing that might happen if
   * the view is modified.
   */
+/*
 $img = '<img src="'.wsUtil_get_video_thumb($output).'" /><div class="wsAnchorOverlay"></div>';
 $options = array('html' => true);
 $videoLink = wsUtil_get_video_link($output);
@@ -27,5 +28,9 @@ if ($videoLink) {
 } else {
 	$link = 'node/'.$row->nid;
 }
+
+echo '<div class="video-link-wrapper">'.print l($img,$link,$options).'</div>';
+
+*/
 ?>
-<div class="video-link-wrapper"><?php print l($img,$link,$options); ?></div>
+<?php echo webskillet15_wrap_video($output); ?>

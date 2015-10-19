@@ -55,7 +55,7 @@
   </div>
 <?php endif; ?>
 
-  <div id="main-wrapper"><div id="main" class="clearfix container"><div class="row">
+  <div id="main-wrapper" class="clearfix container"><div class="row">
 
 <?php endif; /* !$ajax */ ?>
   <section id="page" role="main" class="clearfix <?php echo $main_classes; ?>">
@@ -83,7 +83,7 @@
     </aside>  <!-- /#sidebar-second -->
   <?php endif; ?>
 
-  </div></div></div> <!-- /.row, #main, #wrapper-main -->
+  </div></div> <!-- /#wrapper-main -->
 
 <?php if ($page['prefooter1']): ?>
   <div id="prefooter1-wrapper">

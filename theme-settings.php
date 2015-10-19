@@ -95,18 +95,7 @@ function webskillet15_form_system_theme_settings_alter(&$form, $form_state) {
 	'#type' => 'fieldset',
 	'#title' => 'Javascript',
 	'#collapsible' => true,
-	'#collapsed' => !(theme_get_setting('webskillet15_nowsinit') || theme_get_setting('webskillet15_bootstrapjs') || theme_get_setting('webskillet15_hammerjs') || theme_get_setting('webskillet15_galleria') || theme_get_setting('webskillet15_galleria_selectors') || theme_get_setting('webskillet15_custom_js')),
-  );
-  $form['webskillet15_js']['webskillet15_nowsinit'] = array
-  (
-	'#type' => 'radios',
-	'#title' => t('Override wsUtil.init?'),
-	'#default_value' => theme_get_setting('webskillet15_nowsinit'),
-	'#options' => array(
-		1 => 'Yes',
-		0 => 'No',
-	),
-	'#description' => t('<p>By default, theme runs wsUtil.init on document.ready, which invokes the following methods:</p><ul><li>populateInputs() - any input with class of "populate," will add a placeholder attribute with value of label (HTML5) and javascript for backwards compatibility for browsers that don\'t support the HTML5 placeholder attribute.</li><li>prepareRollStates() - for any image with class of "roll-image," will replace filename.png with filename-on.png on rollover (only works with .png images)</li><li>prepareNavigation() - default javascript behavior for navigation menu</li><li>prepareMessages() - adds an \'x\' to messages which, when clicked, will make them disappear</li><li>preparePopUps - called on \'.btn-share .btn-facebook a\', \'.btn-share .btn-twitter a\' and \'.print_html a\'</li><li>invokes jQuery.validate on all forms on the page</li></ul><p>Set to <strong>YES</strong> to disable this.'),
+	'#collapsed' => !(theme_get_setting('webskillet15_bootstrapjs') || theme_get_setting('webskillet15_hammerjs') || theme_get_setting('webskillet15_galleria') || theme_get_setting('webskillet15_galleria_selectors') || theme_get_setting('webskillet15_custom_js')),
   );
   $form['webskillet15_js']['webskillet15_bootstrapjs'] = array
   (
@@ -130,7 +119,7 @@ function webskillet15_form_system_theme_settings_alter(&$form, $form_state) {
   );
   $form['webskillet15_js']['webskillet15_galleria'] = array
   (
-	'#type' => 'radios',
+	'#type' => 'textfield',
 	'#title' => t('Load Galleria.js?'),
 	'#options' => array(
 		1 => 'Yes',
@@ -146,7 +135,7 @@ function webskillet15_form_system_theme_settings_alter(&$form, $form_state) {
 	'#description' => t('Add one or more comma-separated jQuery selectors to limit the application of galleria.js, above.'),
 	'#default_value' => theme_get_setting('webskillet15_galleria_selectors'),
   );
-  $form['webskillet15_js']['webskillet15_custom_js'] = array
+  $form['webskillet15_js']['webskillet15_galleria'] = array
   (
     '#type' => 'textarea',
     '#title' => t('Custom Javascript'),

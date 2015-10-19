@@ -490,6 +490,7 @@ wsUtil = {
  */
 
 jQuery(document).ready(function($){
+	wsUtil.init();
 });
 
 /**

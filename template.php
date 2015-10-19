@@ -134,18 +134,6 @@ function webskillet15_preprocess_html(&$variables) {
 	);
   }
 
-  if (!theme_get_setting('webskillet15_nowsinit')) {
-    drupal_add_js(
-	  'jQuery(document).ready(function(){ wsUtil.init(); });',
-	    array(
-	      'type' => 'inline',
-	      'group' => JS_THEME,
-	      'every_page' => TRUE,
-	      'weight' => 999,
-	    )
-    );
-  }
-
 /*
   $meta_google_site_verification = array(
     '#type' => 'html_tag',

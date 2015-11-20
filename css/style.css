@@ -1,0 +1,422 @@
+/*
+File: style.css
+Author: Jonathan Kissam, jk@webskillet.com
+
+Table of contents:
+1. Framework
+2. Typography
+ 2.1 Body
+ 2.2 Headers
+ 2.3 Text
+ 2.4 Lists
+ 2.5 Links
+ 2.6 Images
+ 2.7 Tables
+ 2.8 Forms
+3. Header
+4. Navigation
+5. Highlighted
+6. Content
+ 6.1 Messages
+ 6.2 Admin tabs
+ 6.3 Nodes
+ 6.4 Fields
+ 6.5 Profiles
+ 6.6 Comments
+ 6.7 content formatting for specific pages
+ 6.7.1 search form & search results page
+7. Sidebars
+8. Pre-footers and Footer
+9. Media Queries (replicate same structure)
+10. IE Fixes
+*/
+
+/**
+ * 1. Framework
+ */
+
+html, body { height: 100%; }
+.chromeframe { margin: 0.2em 0; background: #ccc; color: #000; padding: 0.2em 0; }
+#wrapper { width: 100%; min-height: 100%; position: relative; }
+#skip-link { position: absolute; }
+#header-wrapper, #navigation-wrapper, #main-wrapper, #footer-wrapper { padding-top: 10px; padding-bottom: 10px; }
+
+/**
+ * 2. Typography
+ */
+
+/* 2.1 Body */
+body { color: #333; font: 93.75%/1.6em Arial, Helvetica, 'Helvetica Neue', sans-serif; }
+
+/* 2.2 Headers */
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0 0 1em; font-family: Arial, Helvetica, 'Helvetica Neue', sans-serif; }
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.333em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.066em; font-weight: bold; }
+h5, h6 { font-size: 0.8em; font-weight: bold; margin-bottom: 0; }
+
+/* 2.3 Text */
+p { margin-bottom: 1.5em; }
+p.leftalign { text-align: left; }
+p.centeralign { text-align: center; }
+p.rightalign { text-align: right; }
+address { font-style: normal; margin-bottom: 1.5em; }
+blockquote { margin: 0 0 0 2em; padding-bottom: 1.8em; }
+blockquote p { margin-bottom: 0.75em; }
+
+/* 2.4 Lists */
+ul, ol { margin: 0 0 1.5em 2em; }
+ul ul, ul ol, ol ul, ol ol { margin-bottom: 0; }
+dl { margin: 0 0 1.5em 0; }
+dt { font-weight: bold; }
+dd { margin: 0 0 1.5em 2em; }
+dd ul, dd ol { margin-left: 0; }
+
+.item-list ul { margin: 0; padding: 0; }
+.item-list ul li { margin: 0; padding: 0; list-style: none outside none; }
+ul.menu { margin: 0; }
+ul.menu li { margin: 0; padding: 0; }
+ul.menu ul { margin-left: 1.5em; }
+ul.inline, ul.links.inline { clear: both; margin: 0; }
+ul.inline li { margin: 0; padding: 0 1em 0 0; }
+ul.inline li.last { padding: 0; }
+ul li.leaf, ul li.collapsed, ul li.expanded { list-style: none outside none; }
+
+/* 2.5 Links */
+a { text-decoration: none; }
+a:link { color: #44889f; }
+a:visited { color: #44889f; }
+.no-touch a:hover { color: #a62a32; }
+a:active { color: #44889f; }
+
+/* 2.6 Images */
+img { max-width: 100%; height: auto !important; }
+.image-left,
+.image-right,
+.image-center { display: block; width: auto; margin: 0 auto 1.5em; }
+
+/* 2.7 Tables */
+th, td { padding: 10px; }
+
+/* 2.8 Forms */
+.form-item { margin: 2em 0; }
+.form-item .description, .filter-guidelines { font-size: 0.8em; line-height: 1.1666em; display: block; clear: left; color: #999; margin-top: 5px; }
+label { font-weight: normal; }
+input, select, textarea { border: 1px solid #ccc; color: #333; padding: 2px; font-family: Arial, Helvetica, 'Helvetica Neue', sans-serif; width: 100%; outline: 0; box-shadow: 0 1px 1px #eee inset; -moz-box-shadow: 0 1px 1px #eee inset; -webkit-box-shadow: 0 1px 1px #eee inset; }
+input:focus, select:focus, textarea:focus { box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; border-color: #333; }
+input[type="checkbox"],input[type="radio"],input[type="submit"],input[type="image"] { width: auto; }
+input[type="image"] { border: 0; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; outline: invert none medium; }
+input[type="search"] { -webkit-appearance: none; moz-appearance: none; }
+input, select { max-width: 400px; }
+fieldset { margin: 2em 0; border-color: #ccc; }
+.webform-client-form .description, .fieldset-description { margin-bottom: 1.5em; }
+.fieldset-description { margin-top: 20px; }
+legend { font: 1.333em Arial,Helvetica,'Helvetica Neue',sans-serif; color: #333; border: 1px solid #ccc; padding: 2px 15px; background: #eee; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+legend + * { -webkit-margin-top-collapse: separate; }
+.form-type-checkbox label, .form-type-radio label { color: #999; }
+input.form-checkbox:checked + label, input.form-radio:checked + label { color: #333; }
+input[type="submit"], button, a.button {
+  background: #dddddd; /* for non-css3 browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ededed');
+  background: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#ededed));
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #000;
+  padding: 6px 10px;
+  margin-right: 1em;
+  text-shadow: 1px 1px 1px #fff;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  cursor: pointer;
+}
+.no-touch input[type="submit"]:hover, .no-touch button:hover, .no-touch a.button:hover {
+  background: #ededed;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dddddd');
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#dddddd));
+  background: -moz-linear-gradient(top,  #ededed,  #dddddd);
+  color: #000;
+  text-decoration: none;
+}
+div.error, .error { color: #cc0000; }
+.form-item input.error, .form-item textarea.error, .form-item select.error { border: 1px solid #cc0000; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; }
+
+a.tabledrag-handle .handle { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
+
+.image-widget-data { width: 100%; max-width: 400px; }
+.form-managed-file .form-file { width: 73%; }
+.form-managed-file .form-submit { width: 25%; margin-left: 2%; }
+
+.node-form .field-type-image table { width: 100%; }
+.node-form .field-type-image td { vertical-align: middle; }
+.node-form .field-type-image td .image-widget { float: left; }
+
+.filter-wrapper .form-item { margin: 0; }
+
+.vertical-tabs ul.vertical-tabs-list li { font-size: 0.8em; line-height: 1.167em; }
+.vertical-tabs ul.vertical-tabs-list li a { padding: 1em 0.6em; }
+.vertical-tabs ul.vertical-tabs-list li a:hover { outline: 0; }
+.vertical-tabs ul.vertical-tabs-list li a:hover,
+.vertical-tabs ul.vertical-tabs-list li a:active,
+.vertical-tabs ul.vertical-tabs-list li a:focus { background: #f5f5f5; }
+.vertical-tabs ul.vertical-tabs-list li.selected a:hover,
+.vertical-tabs ul.vertical-tabs-list li.selected a:active,
+.vertical-tabs ul.vertical-tabs-list li.selected a:focus { background: transparent; }
+.vertical-tabs ul.vertical-tabs-list li a:hover strong,
+.vertical-tabs ul.vertical-tabs-list li a:active strong,
+.vertical-tabs ul.vertical-tabs-list li a:focus strong { text-decoration: none; }
+.vertical-tabs fieldset.vertical-tabs-pane { font-size: 0.8em; line-height: 1.167em; }
+.vertical-tabs fieldset.vertical-tabs-pane .form-item { margin: 1em 0; }
+.vertical-tabs fieldset.vertical-tabs-pane .description { font-size: 1em; }
+
+
+/**
+ * 3. Header
+ */
+
+#header { position: relative; }
+#header #logo img { display: block; }
+
+/**
+ * 4. Navigation
+ */
+
+#navigation h2, #navigation .block { margin: 0; }
+#navigation h2.navigation-header { position: relative; left: auto; cursor: pointer; }
+#navigation h2.navigation-header .toggle { margin-left: 0.25em; }
+#navigation ul.main-menu { height: auto; margin: 0; float: none; }
+.js #navigation > ul.main-menu, .js #navigation > ul.main-menu.collapsed { position: absolute; left: -999em; }
+.js #navigation > ul.main-menu.expanded { position: relative; left: auto; }
+#navigation ul.main-menu li { position: relative; list-style: none outside none; }
+#navigation ul.main-menu li a { display: block; }
+#navigation li ul.main-menu { position: relative; top: auto; left: auto; width: auto; margin: 0 0 0 20px; }
+#navigation li ul.main-menu li { line-height: 40px; }
+#navigation li ul.main-menu li a { padding: 0; }
+
+/* om-maximenu */
+.om-maximenu ul.om-menu { height: auto; }
+.om-maximenu.om-maximenu-main-menu ul.om-menu { float: none; }
+.om-maximenu.om-maximenu-main-menu ul.om-menu li.om-leaf,
+.om-maximenu.om-maximenu-main-menu ul.om-menu li.om-leaf .om-link { float: none; height: auto; min-height: 40px; }
+.om-maximenu ul.om-menu li.om-leaf .om-link { padding: 0; }
+.om-maximenu .om-maximenu-content { min-width: 280px; }
+.om-maximenu-no-style .om-maximenu-content { position: relative; top: auto; left: auto; }
+.om-maximenu-no-style .om-maximenu-middle { background: transparent; }
+.om-maximenu-no-style .om-maximenu-middle-right { padding: 1em; }
+#om-maximenu-main-menu.collapsed, .om-maximenu-content .block .content.collapsed { display: none; }
+.om-maximenu-open { display: none; }
+
+/* slide-in-from-the-right menu for touch screens */
+#navigation-wrapper.touch-menu, .touch-menu #navigation { z-index: 1000; }
+.touch-menu #navigation { display: none; overflow-x: hidden; overflow-y: scroll; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: transparent; }
+.touch-menu h2.navigation-header { margin-left: 5%; }
+.touch-menu #navigation ul.main-menu { position: absolute; left: 100%; width: 100%; margin: 0; min-height: 100%; z-index: 1010; }
+.touch-menu #navigation ul.main-menu li { margin: 0 5%; position: static; }
+.touch-menu #navigation ul.main-menu li ul.main-menu { top: 0; width: 100%; left: 100%; z-index: 1020; margin: 0; }
+.touch-menu #navigation li.expanded .expand { display: inline-block; width: 30%; float: right; text-align: right; }
+
+/**
+ * 5. Highlighted
+ */
+
+/**
+ * 6. Content
+ */
+
+/* 6.1 Messages */
+div.messages { border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; margin: 0 0 2em; }
+div.messages ul { list-style: none outside none; padding: 0; margin: 0; }
+div.messages li { margin-bottom: 1em; }
+div.messages .close { cursor: pointer; float: right; font-size: 2em; }
+div.status, div.warning, div.error { border-color: #ccc; background-color: #fff; }
+div.status, .ok { color: #333; }
+
+/* 6.2 Admin tabs */
+.tabs-wrapper { margin: 1px 0 1.5em; }
+ul.primary { margin: 0; padding: 1px 0 0; border-bottom: none; }
+ul.primary li { display: block; margin-bottom: 1em; text-align: center; }
+ul.primary li a { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; border-color: #ccc; border-bottom: 1px solid #ccc; }
+.no-touch ul.primary li a:hover { border-color: #ccc; border-bottom: 1px solid #ccc; }
+ul.primary li.active a { border-color: #ccc; border-bottom: 1px solid #ccc; }
+
+/* 6.3 Nodes */
+
+.node { margin-bottom: 1.5em; }
+
+/* hide read more link in a way that doesn't screw up phones */
+.node-readmore .element-invisible { left: -999em; } 
+
+/* social media links */
+ul.btn-social { margin: 0; padding: 0; height: 30px; }
+.btn-social li { float: left; margin-right: 10px; list-style: none outside none; font-size: 1.333em; }
+.btn-social li.last { margin-right: 0; }
+#page .share-links { margin: 20px 0; }
+
+/* 6.4 Fields */
+.field { margin: 0 0 1.5em; }
+.field-name-field-tags div { display: inline; }
+.field-name-field-tags .field-item { margin: 0 1em 0 0; }
+.video-container {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* 6.5 Profiles */
+.profile { margin: 1.5em 0; }
+.profile h3 { border: none; }
+.profile dt { margin-bottom: 0; }
+.profile dd { margin-bottom: 1.5em; }
+.password-parent { width: 36em; }
+
+/* 6.6 Comments */
+#comments { clear: both; margin-top: 1.5em; }
+.comment { margin-bottom: 1.5em; }
+.comment .new { text-transform: capitalize; }
+
+/* 6.7 content formatting for specific pages */
+
+/* 6.7.1 search form & search results page */
+
+#search-block-form { position: relative; }
+#search-block-form input.search { padding: 5px 20px 5px 5px; max-width: none; margin: 0; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+#search-block-form input.form-submit { position: absolute; top: 4px; right: 5px; }
+
+.search-form .form-text { width: 200px; }
+.search-form #edit-basic, .search-form #edit-advanced { margin-bottom: 3em; }
+.search-results { margin-left: 0; }
+.search-results .search-snippet-info { padding-left: 0; border-bottom: 1px solid #ccc; }
+.search-results .search-info { display: none; }
+.page-search #block-system-main .content h2, .page-search404 #block-system-main h2 {
+	padding-bottom: 1.1em; border-bottom: 1px solid #ccc;
+}
+
+/* 6.8 Miscellaneous */
+#context_ui_dialog-context-ui { width: 570px; }
+.context-ui-dialog-open { right: -55px; }
+.book-navigation .menu { margin: 1em 0; }
+
+
+/**
+ * 7. Sidebars
+ */
+
+.sidebar .block { margin-bottom: 2em; }
+
+/**
+ * 8. Pre-footers, utility and footer
+ */
+
+/* 8.1 Prefooter 1 */
+
+/* 8.2 Prefooter 2 */
+
+/* 8.3 Utility */
+
+/* 8.4 Footer */
+#footer-wrapper.fixed { position: fixed; left: 0; right: 0; bottom: 0; }
+#footer #site-credit { text-align: center; }
+
+/**
+ * 9. Media Queries
+ */
+
+/* 9.1 Larger than a Samsung galaxy phone in portrait mode */
+@media screen and (min-width: 361px) {
+
+}
+
+/* 9.2 Larger than an iPhone in landscape mode */
+@media screen and (min-width: 481px) {
+
+}
+
+/* 9.3 iPad in portrait mode or larger */
+@media screen and (min-width: 768px) {
+
+	/* 2. Typography */
+	.image-left { float: left; margin: 0 20px 20px 0; max-width: 50%; }
+	.image-right { float: right; margin: 0 0 20px 20px; max-width: 50%; }
+	.image-center { display: block; width: auto; margin: 0 auto 1.5em; }
+
+	/* 4. Navigation */
+	/* move to full screen version if you want to display mobile menu on tablets */
+	#navigation h2.navigation-header { position: absolute; left: -999em; }
+	.js #navigation > ul.main-menu, .js #navigation > ul.main-menu.collapsed { position: relative; left: auto; }
+	#navigation { height: 40px; z-index: 20; }
+	#navigation ul.main-menu { height: 40px; line-height: 40px; float: left; z-index: 20; margin: 0; }
+	#navigation ul.main-menu li { float: left; display: block; margin: 5px 0; padding: 0; height: 30px; line-height: 30px; }
+	#navigation ul.main-menu li a { display: block; float: left; padding: 0 1em; }
+	#navigation ul.main-menu li.first a { padding-left: 0; }
+	#navigation a:link, #navigation a:visited, .no-touch #navigation a:hover, #navigation a:active { text-decoration: none; }
+	#navigation ul.main-menu li.first { border-left: 0; }
+	#navigation-wrapper.fixed { position: fixed; top: 0; left: 0; z-index: 1000; }
+	.toolbar #navigation-wrapper.fixed { top: 65px; }
+
+	/* Handles drop-down menus
+	top-margin = bottom-margin of parent li; top = height of parent li - top-margin */
+	#navigation li ul.main-menu { position: absolute; top: 25px; left: -999em; width: 200px; height: auto; line-height:normal; margin: 5px 0 0; padding: 0.5em; background: #fff; }
+	.no-js #navigation li:hover ul.main-menu, .no-touch #navigation li:hover ul.main-menu,
+	.touch #navigation li.touchExpanded ul.main-menu { left: auto; }
+	#navigation li ul.main-menu li { float: none; height: auto; line-height: normal; }
+	#navigation li ul.main-menu li a, #navigation li ul.main-menu li.first a { display: block; float: none; padding: 5px 0.5em; }
+
+	/* om-maximenu */
+	.om-maximenu ul.om-menu { height: 40px; line-height: 40px; }
+	.om-maximenu.om-maximenu-main-menu ul.om-menu { float: left; }
+	.om-maximenu.om-maximenu-main-menu ul.om-menu li.om-leaf,
+	.om-maximenu.om-maximenu-main-menu ul.om-menu li.om-leaf .om-link { float: left; }
+	.om-maximenu ul.om-menu li.om-leaf .om-link { padding: 0 1em; }
+	.om-maximenu ul.om-menu li.om-leaf.first .om-link { padding-left: 0; }
+	.om-maximenu-no-style .om-maximenu-content { position: absolute; top: 40px; }
+	#om-maximenu-main-menu.collapsed, .om-maximenu-content .block .content.collapsed { display: block; }
+
+	/* 6.2 restore primary tabs to Drupal-like original layout */
+	ul.primary { border-bottom: 1px solid #ccc; }
+	ul.primary li { display: inline; margin-bottom: 0; }
+	ul.primary li a { border-radius: 8px 8px 0 0; background-color: #ccc; border-color: #ccc; padding: 2px 0.75em 0; -moz-border-radius: 8px 8px 0 0; -webkit-border-radius: 8px 8px 0 0; }
+	ul.primary li.active a { background-color: #fff; border-color: #ccc #ccc #fff; }
+	.no-touch ul.primary li a:hover { background-color: #fff; border-color: #ccc #ccc #fff; border-bottom: solid 1px #fff; }
+	ul.secondary { line-height: 3em; margin: 0 0 -1px; padding: 0; }
+	ul.secondary a.active { border-bottom: none; }
+
+	/* 8.3 move utility region to top of the page */
+	#utility { position: absolute; top: 0; left: 0; width: 100%; }
+	#utility .region, #utility-nav { position: relative; }
+	#utility-menu-links { position: absolute; right: 20px; top: 10px; display: block; }
+	#utility .block { position: absolute; }
+
+}
+
+/* 9.4 full screen */
+@media screen and (min-width: 992px) {
+
+}
+
+/* 9.5 wide screen */
+@media screen and (min-width: 1200px) {
+
+}
+
+
+
+/**
+ * 10. IE fixes
+ */
+
+html.lt-ie8 #header-wrapper, html.lt-ie8 #main-wrapper, html.lt-ie8 #footer-wrapper { position: relative; z-index: 0; }
+html.lt-ie8 input[type="text"], html.lt-ie8 input[type="password"], html.lt-ie8 select, html.lt-ie8 textarea { width: 90%; }
+html.lt-ie8 #navigation li:hover ul.main-menu { left: 0; }
+html.lt-ie9 img { max-width: none; }

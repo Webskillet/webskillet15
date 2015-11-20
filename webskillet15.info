@@ -1,0 +1,54 @@
+name = webskillet15
+description = mobile-first base HTML5 theme for webskillet development (2015 version)
+package = Core
+version = 1.0-alpha3
+core = 7.x
+engine = phptemplate
+stylesheets[all][] = css/style.css
+stylesheets[print][] = css/print.css
+scripts[] = js/modernizr.js
+scripts[] = js/jquery.validate.js
+scripts[] = js/wsutil.js
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = comment_user_verification
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+regions[header]         = Header
+regions[navigation]     = Navigation
+regions[highlighted]    = Highlighted
+regions[content]        = Content
+regions[sidebar_first]  = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[prefooter1]     = Prefooter 1
+regions[prefooter2]		= Prefooter 2
+regions[utility]		= Utility
+regions[footer]         = Footer
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom
+
+; default settings
+settings[webskillet15_navigation_style] = 'default'
+settings[webskillet15_google_webfonts] = ''
+settings[webskillet15_load_fontawesome] = 0
+settings[webskillet15_om_maximenu] = 0
+settings[webskillet15_logo_rollstate] = 0
+settings[webskillet15_custom_css] = ''
+settings[webskillet15_hammerjs] = 0
+settings[webskillet15_bootstrapjs] = 0
+settings[webskillet15_galleria] = 0
+settings[webskillet15_galleria_selectors] = ''
+settings[webskillet15_custom_js] = ''
+settings[webskillet15_twitter_handle] = ''
+settings[webskillet15_twitter_field] = ''
+settings[webskillet15_twitter_hashtag] = ''
+settings[webskillet15_block_classes] = ''
+settings[webskillet15_block_icons] = ''
+
+

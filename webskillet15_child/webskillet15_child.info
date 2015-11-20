@@ -1,0 +1,39 @@
+name = Webskillet 15 Child Theme
+description = Child theme for Webskillet 15
+core = 7.x
+base theme = webskillet15
+stylesheets[all][] = css/child.css
+scripts[] = js/script.js
+
+regions[header]         = Header
+regions[navigation]     = Navigation
+regions[highlighted]    = Highlighted
+regions[content]        = Content
+regions[sidebar_first]  = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[prefooter1]     = Prefooter 1
+regions[prefooter2]		= Prefooter 2
+regions[utility]		= Utility
+regions[footer]         = Footer
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom
+
+; default settings
+settings[webskillet15_navigation_style] = 'default'
+settings[webskillet15_google_webfonts] = ''
+settings[webskillet15_load_fontawesome] = 0
+settings[webskillet15_om_maximenu] = 0
+settings[webskillet15_logo_rollstate] = 0
+settings[webskillet15_custom_css] = ''
+settings[webskillet15_hammerjs] = 0
+settings[webskillet15_bootstrapjs] = 0
+settings[webskillet15_galleria] = 0
+settings[webskillet15_galleria_selectors] = ''
+settings[webskillet15_custom_js] = ''
+settings[webskillet15_twitter_handle] = ''
+settings[webskillet15_twitter_field] = ''
+settings[webskillet15_twitter_hashtag] = ''
+settings[webskillet15_block_classes] = ''
+settings[webskillet15_block_icons] = ''
+
+

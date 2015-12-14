@@ -67,6 +67,12 @@ function webskillet15_preprocess_html(&$variables) {
 		'every_page' => TRUE,
 		'weight' => -97,
 	));
+    drupal_add_css(drupal_get_path('theme','webskillet15').'/css/jasny-bootstrap.min.css',array(
+		'type' => 'file',
+		'group' => CSS_THEME,
+		'every_page' => TRUE,
+		'weight' => -96,
+	));
     drupal_add_js(drupal_get_path('theme','webskillet15').'/js/bootstrap.min.js',array(
 		'type' => 'file',
 		'group' => JS_THEME,
@@ -78,12 +84,18 @@ function webskillet15_preprocess_html(&$variables) {
 		'every_page' => TRUE,
 		'weight' => -100,
 	));
-	drupal_add_js(drupal_get_path('theme','webskillet15').'/js/jquery.browser.min.js',array(
+	  drupal_add_js(drupal_get_path('theme','webskillet15').'/js/jquery.browser.min.js',array(
 		'type' => 'file',
 		'group' => JS_LIBRARY,
 		'every_page' => TRUE,
 		'weight' => -99,
 	));
+    drupal_add_js(drupal_get_path('theme','webskillet15').'/js/jasny-bootstrap.min.js',array(
+    'type' => 'file',
+    'group' => JS_LIBRARY,
+    'every_page' => TRUE,
+    'weight' => -98,
+    ));
   } else {
     drupal_add_css(drupal_get_path('theme','webskillet15').'/css/bootstrap-gridonly.min.css',array(
 		'type' => 'file',

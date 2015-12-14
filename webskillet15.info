@@ -27,9 +27,10 @@ regions[content]        = Content
 regions[sidebar_first]  = First Sidebar
 regions[sidebar_second] = Second Sidebar
 regions[prefooter1]     = Prefooter 1
-regions[prefooter2]		= Prefooter 2
-regions[utility]		= Utility
+regions[prefooter2]		  = Prefooter 2
+regions[utility]		    = Utility
 regions[footer]         = Footer
+regions[offcanvas]      = Off Canvas
 regions[page_top]       = Page top
 regions[page_bottom]    = Page bottom
 

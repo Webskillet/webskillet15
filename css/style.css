@@ -216,6 +216,11 @@ a.tabledrag-handle .handle { box-sizing: content-box; -moz-box-sizing: content-b
 .touch-menu #navigation ul.main-menu li ul.main-menu { top: 0; width: 100%; left: 100%; z-index: 1020; margin: 0; }
 .touch-menu #navigation li.expanded .expand { display: inline-block; width: 30%; float: right; text-align: right; }
 
+/* offCanvas toggle */
+.navbar-toggle { display: block; }
+.offcanvas { background-color: #333; color: white; width: 300px; }
+
+
 /**
  * 5. Highlighted
  */

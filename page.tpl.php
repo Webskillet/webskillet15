@@ -124,4 +124,11 @@
 </div>
 
 </div> <!-- /#wrapper -->
+
+<?php if ($page['offcanvas']): ?>
+    <div id="offCanvas" class="offcanvas navmenu-fixed-right">
+      <?php print render($page['offcanvas']); ?>
+    </div>
+  <?php endif; ?>
+
 <?php endif; /* !$ajax */ ?>
